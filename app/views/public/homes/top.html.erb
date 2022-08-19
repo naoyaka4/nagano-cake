@@ -1,2 +1,43 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="px-3 mx-auto">
+      <div class="cover-text" style="background-image:url(nagano-cake/app/assets/images/no_image.jpeg);">
+        <p>
+          ようこそ、ながのCAKEへ！</br>
+          このサイトは、ケーキ販売のECサイトになります。</br>
+          会員でない方も商品の閲覧はできますが、</br>
+          購入には会員登録が必要になります。
+        </p>
+      </div>
+
+      <h3><strong>新着商品</strong></h3>
+
+      <div class="d-flex flex-row">
+        <div>
+          <%= image_tag 'no_image', size: "150x150" %>
+          <p><strong>商品名</strong></p>
+          <p><strong>¥0,000</strong></p>
+        </div>
+        <div>
+          <%= image_tag 'no_image', size: "150x150" %>
+          <p><strong>商品名</strong></p>
+          <p><strong>¥0,000</strong></p>
+        </div>
+        <div>
+          <%= image_tag 'no_image', size: "150x150" %>
+          <p><strong>商品名</strong></p>
+          <p><strong>¥0,000</strong></p>
+        </div>
+        <div>
+          <%= image_tag 'no_image', size: "150x150" %>
+          <p><strong>商品名</strong></p>
+          <p><strong>¥0,000</strong></p>
+        </div>
+      </div>
+      <div style="text-align: right;">
+        <%= link_to 'すべての商品を見る >', products_path %>
+      </div>
+    </div>
+  </div>
+</div>
