@@ -1,2 +1,55 @@
-<h1>Admin::Products#new</h1>
-<p>Find me in app/views/admin/products/new.html.erb</p>
+<div class="row">
+
+    <h2>商品新規登録</h2>
+    <%= form_with model: @product, url: admin_products_path, method: :post, local: true do |f| %>
+        <div class="col-5">
+        </div>
+    <table class="table">
+    <tbody>
+           <tr>
+            <div class="img-container">
+            <td>
+            </td>
+            <%= f.file_field :post_image%>
+            <%= f.hidden_field :post_image_cache %>
+           </tr>
+           <div class="row">
+            	<%= f.label :商品名 %>
+            	<%= f.text_field :name, class:"form-control" %>
+           </div>
+           <div class="row">
+            	<%= f.label :商品説明 %>
+            	<%= f.text_area :explanation, class:"form-control" %>
+           </div>
+            
+           <div class="row">
+            	<%= f.label :ジャンル選択 %>
+            	<%= f.select :mc_id, options_for_select([['選択してください', ''], ['チョコ', '1'], ['ケーキ', '2'], ['キャンディ', '3'], ['クッキー', '4']]), {}, {class: 'mclist__select'} %>
+           </div>
+           
+            <div class="row">
+            	<%= f.label :税抜価格 %>
+            	<%= f.text_field :price, class:"form-control" %>
+            	円
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <%= f.label :販売ステータス %>
+                <%= f.label :is_active, '販売中', value: 1 %>
+                <%= f.radio_button :is_active, '1' %>
+      
+                <%= f.label :is_active, '販売停止', value: 0 %>
+                <%= f.radio_button :is_active, '0' %>
+              </div>
+             </div>
+            <tr>
+            <div class="row">
+             <%= f.hidden_field :id, :value => @product.id %>
+          	 <%= f.submit "新規登録", class:"btn btn-success" %>
+            </div>
+            </tr>
+      </tbody>
+    <% end %>
+</div>
+
+
