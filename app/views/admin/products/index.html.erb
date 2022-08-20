@@ -1,0 +1,28 @@
+<h2>商品一覧</h2>
+<table>
+	<thead>
+		<tr>
+			<th>商品ID</th>
+			<th>商品名</th>
+			<th>税抜価格</th>
+			<th>ジャンル</th>
+			<th>ステータス</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @products.each do |f| %>
+			<tr>
+				<th><%= f.id %></th>
+				<th><%= link_to f.name, admin_product_path(@product) %></th>
+				<th><%= f.non_taced_price %></th>
+				<th><%= f.name %></th>
+				<th><% if f.is_active == true %>
+					販売中
+					<% else %>
+					販売停止中
+					<% end %>
+				</th>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
