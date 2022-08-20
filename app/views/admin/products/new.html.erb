@@ -10,8 +10,8 @@
             <div class="img-container">
             <td>
             </td>
-            <%= f.file_field :post_image%>
-            <%= f.hidden_field :post_image_cache %>
+            <%= f.file_field :product_image%>
+            <%= f.hidden_field :product_image_cache %>
            </tr>
            <div class="row">
             	<%= f.label :商品名 %>
@@ -24,12 +24,12 @@
             
            <div class="row">
             	<%= f.label :ジャンル選択 %>
-            	<%= f.select :mc_id, options_for_select([['選択してください', ''], ['チョコ', '1'], ['ケーキ', '2'], ['キャンディ', '3'], ['クッキー', '4']]), {}, {class: 'mclist__select'} %>
+            	<%= f.select :genre_id, options_for_select([['選択してください', ''], ['チョコ', '1'], ['ケーキ', '2'], ['キャンディ', '3'], ['クッキー', '4']]), {}, {class: 'mclist__select'} %>
            </div>
            
             <div class="row">
             	<%= f.label :税抜価格 %>
-            	<%= f.text_field :price, class:"form-control" %>
+            	<%= f.text_field :non_taced_price, class:"form-control" %>
             	円
             </div>
             <div class="row">
