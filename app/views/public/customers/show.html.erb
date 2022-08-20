@@ -1,2 +1,45 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<h4>マイページ</h4>
+
+<p><strong>登録情報</strong></p>
+<div class="form-inline">
+  <%= link_to '編集する', edit_customer_path, class: "btn btn-sm btn-success" %>
+</div>
+
+<div class="col-5 ml-3">
+  <table class="table table-bordered">
+    <tr>
+      <td>氏名</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>カナ</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>郵便番号</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>電話番号</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+
+<p><strong>配送先</strong></p>
+<div>
+  <%= link_to "一覧を見る", addresses_path, class: "btn btn-sm btn-primary" %>
+</div>
+
+<p><strong>注文履歴</strong></p>
+<div>
+  <%= link_to "一覧を見る", orders_path, class: "btn btn-sm btn-primary" %>
+</div>
