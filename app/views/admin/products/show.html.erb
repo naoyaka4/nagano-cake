@@ -1,0 +1,38 @@
+<div class="row">
+	<h2>商品詳細</h2>
+
+<!--ここにイメージ画像入れる-->
+		<table class="table">
+		  <tr>
+				<th>画像</th>
+				<th><%= @product.image %></th>
+			</tr>
+			<tr>
+				<th>商品名</th>
+				<th><%= @product.name %></th>
+			</tr>
+			<tr>
+				<th>商品説明</th>
+				<th><%= @product.explanation %></th>
+			</tr>
+			<tr>
+				<th>ジャンル</th>
+				<th><%= @product.name %></th>
+			</tr>
+			<!--こっから下わからんちん-->
+			<tr>
+				<th>税込価格（税抜価格）</th>
+     	<th><%= @product.non_taced_price %></th>
+			</tr>
+			<tr>
+				<th>販売ステータス</th>
+				<th><%= @product.is_active %></th>
+				<th>
+
+			</tr>
+		</table>
+		<div>
+		<%= link_to ' 編集する', edit_admin_product_path(@product), class: "btn btn-success" %>
+	    </div>
+	</div>
+</div>
