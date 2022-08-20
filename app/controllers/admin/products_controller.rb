@@ -8,13 +8,11 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new
   end
   
-  # 不安箇所コメントアウト
-  # def add_tax_sales_price
-  # (self.sales_price * 1.10).round
-  # end
+ 
   
   def show
     @product = Product.find(params[:id])
+    @product_image = @product.image
   end
 
   def edit

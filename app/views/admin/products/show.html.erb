@@ -5,7 +5,7 @@
 		<table class="table">
 		  <tr>
 				<th>画像</th>
-				<th><%= @product.image %></th>
+				  <%= image_tag 'no_image', size: "200x200" %>
 			</tr>
 			<tr>
 				<th>商品名</th>
@@ -17,16 +17,23 @@
 			</tr>
 			<tr>
 				<th>ジャンル</th>
-				<th><%= @product.name %></th>
+				<th><%= @product.genre.name %></th>
 			</tr>
 			<!--こっから下わからんちん-->
-			<tr>
+	    <tr>
 				<th>税込価格（税抜価格）</th>
-     	<th><%= @product.non_taced_price %></th>
+				<th><%= @product.add_tax_non_taced_price.to_s(:dalimited) %>円</th>
+				<th>(<%= @product.non_taced_price %>円)</th>
 			</tr>
 			<tr>
 				<th>販売ステータス</th>
-				<th><%= @product.is_active %></th>
+				<th>
+					<% if @product.is_active == true %>
+						商品販売中
+					<% else %>
+						商品未販売
+					<% end %>
+				</th>
 				<th>
 
 			</tr>
