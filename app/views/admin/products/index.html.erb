@@ -15,14 +15,18 @@
 		<th><%= product.id %></th>
 		<th><%= link_to product.name, admin_product_path(product.id) %></th>
 		<th><%= product.non_taced_price %></th>
-		<th><%= product.genre.name %></th>
-		<th><% if product.is_active == true %>
+		<th><%= product.name %></th>
+				<th><% if product.is_active == true %>
 			販売中
 			<% else %>
 			販売停止中
 			<% end %>
+			 <td><%= link_to 'Destroy', admin_products_path(product), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+
 		</th>
 	</tr>
+	
   <% end %>
+  
 	</tbody>
 </table>

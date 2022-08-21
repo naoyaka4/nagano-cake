@@ -8,8 +8,6 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new
   end
   
- 
-  
   def show
     @product = Product.find(params[:id])
     @product_image = @product.image
@@ -20,12 +18,9 @@ class Admin::ProductsController < ApplicationController
   end
   
   def create
-      @product = Product.new(product_params)
-    if @product.save
-       redirect_to admin_products_path(@product.id)#notice: 'You have created book successfully.'?
-    else
-      render:new
-    end
+    @product = Product.new(product_params)
+    @product.save
+    redirect_to admin_product_path(@product.id)#notice: 'You have created book successfully.'?一覧の時はid がいらない。
   end
   
 
@@ -35,6 +30,15 @@ class Admin::ProductsController < ApplicationController
     @product = Product.find(params[:id])
    
   end
+  
+  
+  def destroy
+    @product = Product.all  # データ（レコード）を1件取得
+    @product.destroy  # データ（レコード）を削除
+    redirect_to admin_products_path  # 投稿一覧画面へリダイレクト 
+  end
+  
+  
  private
 
   def product_params
