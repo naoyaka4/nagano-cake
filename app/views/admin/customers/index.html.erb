@@ -9,7 +9,7 @@
       <td>ステータス</td>
     </tr>
   </thead>
-  
+
   <tbody>
     <% @customers.each do |customer| %>
     <tr>
@@ -17,7 +17,7 @@
         <%= customer.id %>
       </td>
       <td>
-        <%= link_to admincustomer_path(customer.id) do %>
+        <%= link_to admin_customer_path(customer.id) do %>
          <%= customer.last_name %><%= customer.first_name %>
         <% end %>
       </td>
@@ -25,8 +25,14 @@
         <%= customer.email %>
       </td>
       <td>
-        <!--<%= customer.is_deleted %>-->
+        <% if customer.is_deleted %>
+        退会
+        <% else %>
+        有効
+        <% end %>
       </td>
+
     </tr>
+    <% end %>
   </tbody>
-</table>
+  </table>
