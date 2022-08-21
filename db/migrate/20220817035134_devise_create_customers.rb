@@ -6,7 +6,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      
+
 
       ## Recoverable
       t.string   :reset_password_token
@@ -39,7 +39,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :post_code
       t.string :address
       t.string :phone_number
-      t.boolean :is_deleted
+      t.boolean :is_deleted, default: false
 
 
       t.timestamps null: false
@@ -50,5 +50,5 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
     # add_index :customers, :confirmation_token,   unique: true
     # add_index :customers, :unlock_token,         unique: true
   end
-  
+
 end
