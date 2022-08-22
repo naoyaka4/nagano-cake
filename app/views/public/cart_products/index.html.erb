@@ -1,2 +1,49 @@
-<h1>Public::CartProducts#index</h1>
-<p>Find me in app/views/public/cart_products/index.html.erb</p>
+<%# このページ空白等調整済みなので一番下まで変更して欲しい（飯田） %>
+<div class="row login-row">
+	<h2>ショッピングカート</h2>
+		<%= button_to 'カートを空にする', @inside_cart, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: "btn btn-danger destroy-all" %>
+	<div class="row">
+		<table class="table table-bordered cart-table">
+			<thead class="thead-light">
+				<tr style="background-color:#F5F5F5;">
+					<th>商品名</th>
+					<th>単価(税込)</th>
+					<th>数量</th>
+					<th>小計</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @inside_carts.each do |inside_cart| %>
+				<tr>
+					<td><%= inside_cart.product.name %></td>
+					<td><%= (inside_cart.product.price * 1.1).to_i %></td>
+					<td>
+						<%= form_with model: inside_cart, url: inside_cart_path(id: inside_cart.id), method: :patch, local: true do |f| %>
+							<%= f.number_field :quantity, min: 1, max: 100 %>
+							<%= f.submit "変更" %>
+						<% end %>
+					</td>
+					<td><%= (Product.find(inside_cart.product_id).price * 1.1 * inside_cart.quantity).to_i  %></td>
+					<td><%= link_to "削除する", inside_cart_path(id: inside_cart.id), method: :delete, class: "btn btn-danger"  %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<table class="table table-bordere">
+			<tr>
+				<th>合計金額</th>
+				<td><%= @sum %></td>
+			</tr>
+		</table>
+	</div>
+	<%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
+	<div>
+		<% if @inside_carts.count == 0  %>
+			<%= link_to "情報入力に進む", inside_carts_path, class: "btn btn-success go-to-order" %>
+		<% else %>
+			<%= link_to "情報入力に進む", new_order_path, class: "btn btn-success go-to-order" %>
+		<% end %>
+	</div>
+</div>
+<%# ここまで %>

@@ -2,28 +2,28 @@
 <table>
 	<thead>
   <tr>
-	<th>商品ID</th>
-	<th>商品名</th>
-	<th>税抜価格</th>
-	<th>ジャンル</th>
-	<th>ステータス</th>
+	<th style="background-color:pink">商品ID</th>
+	<th style="background-color:pink">商品名</th>
+	<th style="background-color:pink">税抜価格</th>
+	<th style="background-color:pink">ジャンル</th>
+	<th style="background-color:pink">ステータス</th>
   </tr>
 	</thead>
 	<tbody>
   <% @products.each do |product| %>
 	<tr>
-		<th><%= product.id %></th>
-		<th><%= link_to product.name, admin_product_path(product.id) %></th>
-		<th><%= product.non_taced_price %></th>
-		<th><%= product.name %></th>
-				<th><% if product.is_active == true %>
+		<td><%= product.id %></td>
+		<td><%= link_to product.name, admin_product_path(product.id) %></td>
+		<td><%= product.non_taced_price %></td>
+		<td><%= product.name %></td>
+				<td><% if product.is_active == true %>
 			販売中
 			<% else %>
 			販売停止中
 			<% end %>
 			 <td><%= link_to 'Destroy', admin_products_path(product), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
 
-		</th>
+		</td>
 	</tr>
 	
   <% end %>
