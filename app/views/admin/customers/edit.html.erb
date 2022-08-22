@@ -2,7 +2,7 @@
   <%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集
 </h2>
 
-<%= form_with model: @customer, local:true do |f| %>
+<%= form_with model: @customer, url: admin_customer_path(@customer.id), local:true do |f| %>
 <table>
   <tr class="form-group">
     <th>会員ID</th>
@@ -37,9 +37,9 @@
   <tr class="form-group">
     <th>会員ステータス</th>
     <td>
-       <%= f.radio_button :is_deleted, "true" %>
+       <%= f.radio_button :is_deleted, false %>
        <%= f.label :is_deleted, "有効", value: false %>
-       <%= f.radio_button :is_deleted, "true" %>
+       <%= f.radio_button :is_deleted, true %>
        <%= f.label :is_deleted, "退会", value: true %>
     </td>
   </tr>
