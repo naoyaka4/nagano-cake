@@ -1,6 +1,6 @@
 <li class="list-none">
     <%= cart_product.product.name %>
-    <%= cart_product.product.price %>
+    <%= cart_product.product.non_taced_price %>
     <%= form_with(url: update_product_url, method: :post,local: true) do |f| %>
     <%= f.hidden_field :product_id, value: cart_product.product.id %>
     <%= f.number_field :quantity ,value: cart_product.quantity%>
