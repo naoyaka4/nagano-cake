@@ -1,0 +1,11 @@
+<li class="list-none">
+    <%= cart_product.product.name %>
+    <%= cart_product.product.non_taced_price %>
+    <%= form_with(url: update_product_url, method: :post,local: true) do |f| %>
+    <%= f.hidden_field :product_id, value: cart_product.product.id %>
+    <%= f.number_field :quantity ,value: cart_product.quantity%>
+    <%= f.submit "更新", class: "" %>
+    <% end %>
+    <%= button_to "削除", delete_product_path(product_id: cart_product.product.id), method: :delete,
+                                       data: { confirm: "商品を削除しますか？" } %>
+</li>
