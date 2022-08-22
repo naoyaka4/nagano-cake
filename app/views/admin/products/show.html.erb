@@ -9,31 +9,31 @@
 			</tr>
 			<tr>
 				<th>商品名</th>
-				<th><%= @product.name %></th>
+				<td><%= @product.name %></td>
 			</tr>
 			<tr>
 				<th>商品説明</th>
-				<th><%= @product.explanation %></th>
+				<td><%= @product.explanation %></td>
 			</tr>
 			<tr>
 				<th>ジャンル</th>
-				<th><%= @product.genre.name %></th>
+				<td><%= @product.genre.name %></td>
 			</tr>
 			<!--こっから下わからんちん-->
 	    <tr>
 				<th>税込価格（税抜価格）</th>
-				<th><%= @product.add_tax_non_taced_price.to_s(:dalimited) %>円</th>
-				<th>(<%= @product.non_taced_price %>円)</th>
+				<td><%= @product.add_tax_non_taced_price.to_s(:dalimited) %>円</td>
+				<td>(<%= @product.non_taced_price %>円)</td>
 			</tr>
 			<tr>
 				<th>販売ステータス</th>
-				<th>
+				<td>
 					<% if @product.is_active == true %>
 						商品販売中
 					<% else %>
 						商品未販売
 					<% end %>
-				</th>
+				</td>
 				<th>
 
 			</tr>
