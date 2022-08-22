@@ -19,6 +19,34 @@
   </tr>
   <tr>
     <th>注文ステータス</th>
-    <td></td>
+    <td>
+      <%= form_with model: @order, url: admin_order_path(@order.id), local:true do |f| %>
+      <%= f.select :status, options_from_collection_for_select(Order)
+      <%= f.select :プロパティ名, options_from_collection_for_select(モデル, :フォームで送る値(メソッド), :セレクトボックスに表示する値(メソッド)) %>
+
+    </td>
   </tr>
 </table>
+
+<table>
+  <thead>
+    <tr>
+      <td>商品名</td>
+      <td>単価(税込)</td>
+      <td>数量</td>
+      <td>小計</td>
+      <td>製作ステータス</td>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <%= @order.order_detail.each do |order_detail| %>
+    <tr>
+      <td>
+        <%= order_detail.product.name %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<%= f.select :making_status, OrderDetail.making_statuses.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]} %>
