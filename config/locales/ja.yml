@@ -5,4 +5,12 @@
           credit_card: "クレジットカード"
           transfer: "銀行振込"
           
-      
+  ja:
+    enums:
+      order:
+        status:
+          waiting_pay: "入金待ち"
+          confilmation: "入金確認"
+          under_manufacture: "製作中"
+          prepare_to_ship: "発送準備中"
+          shipped: "発送済み"

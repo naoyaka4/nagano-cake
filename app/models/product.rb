@@ -2,6 +2,8 @@ class Product < ApplicationRecord
   
   has_one_attached :image
   belongs_to :genre
+  has_many :cart_products, through: :customers
+  has_many :order_details, through: :orders
   
   def get_image
     unless image.attached?
