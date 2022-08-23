@@ -10,8 +10,9 @@
       <tr>
         <td>
           <div class="img-container">
-            <%= f.file_field :product_image%>
-            <%= f.hidden_field :product_image %>
+            <%= f.file_field :image, accept: "image/*"%>
+            <%#= f.hidden_field :product_image %>
+            <!--画像を入れなくても情報を送ってくれる-->
           </div>
         </td>
       </tr>
@@ -53,18 +54,10 @@
         <div class="form-group">
           <div class="form-group">
             <%= f.label :販売ステータス %>
-            
             <%= f.label :is_active, '販売中', value: true %>
             <%= f.radio_button :is_active, true %>
             <%= f.label :is_active, '販売停止', value: false %>
             <%= f.radio_button :is_active, false %>
-            
-            
-        <!--<%#= f.radio_button :is_active, "true" %>-->
-        <!--<%#= f.label :is_active, "販売中" %>-->
-        <!--<%#= f.radio_button :is_active, "false" %>-->
-        <!--<%#= f.label :is_active, "販売停止" %>-->
-      
           </div>
          </div>
        </td>

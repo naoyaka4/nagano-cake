@@ -11,6 +11,7 @@ class Admin::ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @product_image = @product.image
+    
   end
 
   def edit
@@ -28,7 +29,7 @@ class Admin::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-   
+    @product = params[:name]
   end
   
   

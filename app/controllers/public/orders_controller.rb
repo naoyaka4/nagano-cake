@@ -3,8 +3,6 @@ class Public::OrdersController < ApplicationController
     @order = Order.new
     @address = Address.new
     @customer = current_customer
-    @address1 = current_customer
-    
   end
 
   def index
@@ -14,6 +12,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def check
+    
   end
 
   def complete
