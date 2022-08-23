@@ -19,7 +19,7 @@ class Product < ApplicationRecord
   end
   
   
-  enum is_active: { true: 0, false: 1 }
+  # enum is_active: { true: 0, false: 1 }
   
 end
 
