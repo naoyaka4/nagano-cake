@@ -6,11 +6,11 @@
         <tr>
           <th>ジャンル検索</th>
         </tr>
+        <% @genres.each do |genre| %>
         <tr>
-          <% @genres.each do |genre| %>
-          <td><%= link_to genre.name, products_path(genre) %></td>
-          <% end %>
+          <td><%= genre.name %></td>
         </tr>
+        <% end %>
       </table>
     </div>
 
@@ -21,7 +21,7 @@
       <div class="d-flex flex-wrap">
         <div>
           <%= image_tag 'no_image', size: "150x150" %>
-          <p><strong><%= product.name %></strong></p>
+          <p><strong><%= link_to product.name, product_path(product) %></strong></p>
           <p><strong><%= product.non_taced_price %></strong></p>
         </div>
       </div>
