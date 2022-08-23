@@ -5,7 +5,8 @@ class Public::ProductsController < ApplicationController
   end
 
   def show
+    @genres = Genre.all
     @product = Product.find(params[:id])
-    @cart_product = current.customer
+    @cart_product = CartProduct.new
   end
 end
