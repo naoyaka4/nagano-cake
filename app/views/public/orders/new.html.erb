@@ -2,7 +2,6 @@
   <div class = "row">
       <h2>注文情報入力</h2>
       <%= form_with model: @public, url: orders_check_path, method: :post, local: true do |f| %>
-      
     <div>
         <h4>支払方法</h4>
         <%= f.radio_button :payment_method, "credit_card" %>
