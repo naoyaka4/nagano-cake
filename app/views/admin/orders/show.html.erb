@@ -3,7 +3,11 @@
 <table>
   <tr>
     <th>購入者</th>
-    <td><%= @order.customer.last_name %> <%= @order.customer.first_name %></td>
+    <td>
+      <%= link_to admin_customer_path(@order.customer) do %>
+       <%= @order.customer.last_name %> <%= @order.customer.first_name %>
+      <% end %>
+    </td>
   </tr>
   <tr>
     <th>注文日</th>
@@ -19,6 +23,63 @@
   </tr>
   <tr>
     <th>注文ステータス</th>
-    <td></td>
+    <td>
+      <%= form_with model: @order, url: admin_order_path(@order.id), local:true do |f| %>
+      <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %>
+      <%= f.submit "更新", class: 'btn btn-secondary' %>
+      <% end %>
+    </td>
   </tr>
 </table>
+
+<table>
+  <thead>
+    <tr>
+      <td>商品名</td>
+      <td>単価(税込)</td>
+      <td>数量</td>
+      <td>小計</td>
+      <td>製作ステータス</td>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <%= @order.order_details.each do |order_detail| %>
+    <tr>
+      <td>
+        <%= order_detail.product.name %>
+      </td>
+      <td>
+        <%= order_detail.purchase_price %>
+      </td>
+      <td>
+        <%= order_detail.amount %>
+      </td>
+      <td>
+        <%= order_detail.purchase_price * amount %>
+      </td>
+      <td>
+        <%= form_with model: order_detail, url: admin_path(order_detail.id), local:true do |f| %>
+        <%= f.select :making_status, OrderDetail.making_statuses.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]} %>
+        <%= f.submit "更新", class: 'btn btn-secondary' %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tr>
+    <th>商品合計</th>
+    <td><%= @order.total_payment %>円</td>
+  </tr>
+  <tr>
+    <th>送料</th>
+    <td><%= @order.cost %>円</td>
+  </tr>
+  <tr>
+    <th>請求額合計</th>
+    <td><%= @order.sum_of_order_price %>円</td>
+  </tr>
+</table>
+
