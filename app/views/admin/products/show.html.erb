@@ -1,11 +1,10 @@
 <div class="row">
 	<h2>商品詳細</h2>
-
-<!--ここにイメージ画像入れる-->
 		<table class="table">
 		  <tr>
 				<th>画像</th>
-				  <%= image_tag 'no_image', size: "200x200" %>
+				  <%= image_tag @product.get_image, size: "200x200" %>
+				  <!--.get_image絶対いる-->
 			</tr>
 			<tr>
 				<th>商品名</th>
