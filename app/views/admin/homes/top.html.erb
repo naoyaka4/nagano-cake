@@ -23,7 +23,7 @@
         <%= order.order_detail.amount %>
       </td>
       <td>
-        <%= t("enums.order.status.#{order.status}") %>
+        <%= order.status_i18n %>
       </td>
     </tr>
     <% end %>

@@ -1,2 +1,12 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<h2>会員情報編集</h2>
+
+<%= form_with model: @customer, url: customer_information_path, local:true do |f| %>
+<table>
+  <tr class="form-group">
+    <th>氏名</th>
+    <td><%= f.text_field :last_name, class: "form-control last_name" %></td>
+    <td></td>
+    <td><%= f.text_field :first_name, class: "form-control first_name" %></td>
+  </tr>
+
+</table>
