@@ -6,11 +6,11 @@ class Public::AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-
+    @address.customer_id = current_customer.id
     if @address.save
       redirect_to edit_address_path(@address), notice: "You have created book successfully."
     else
-      @address = Address.all
+      @addresses = Address.all
       render 'index'
     end
   end
@@ -21,6 +21,7 @@ class Public::AddressesController < ApplicationController
 
   def update
     @address = Address.find(params[:id])
+    @address.customer_id = current_customer.id
     if @address.update(address_params)
       redirect_to addresses_path, notice: "You have updated book successfully."
     else

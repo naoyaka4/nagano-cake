@@ -1,6 +1,6 @@
 <h4>配送先編集</h4>
 
-<%= form_with model: @address, url: address_path, local: true do |f| %>
+<%= form_with model: @address, url: address_path(@address), local: true do |f| %>
   <table>
     <tr>
       <td>郵便番号(ハイフンなし)</td>
