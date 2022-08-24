@@ -1,3 +1,15 @@
 <h2>カート内アイテム</h2>
 <%= render partial: "index", collection: @cart_products, as: "cart_product"%>
 <h2><%= "合計：#{@total}円" %></h2>
+
+    <div class = "col-md-3 ml-auto">
+      <%= link_to new_order_path do %>
+        <button class = "btn btn-info" >入力画面へ進む</button>
+      <% end %>
+    </div>
+    <div class = "col-md-3 ml-auto">
+      <%= link_to products_path do %>
+        <button class = "btn btn-info" >買い物を続ける</button>
+      <% end %>
+    </div>
+    
