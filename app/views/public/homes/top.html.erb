@@ -1,7 +1,20 @@
 <p id="notice"></p>
 <div class="container">
   <div class="row">
-    <div class="px-3 mx-auto">
+    <div class="col-md-3">
+      <table>
+        <tr>
+          <th>ジャンル検索</th>
+        </tr>
+        <% @genres.each do |genre| %>
+        <tr>
+          <td><%= genre.name %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
       <div class="cover-text" style="background-image:url(nagano-cake/app/assets/images/no_image.jpeg);">
         <p>
           ようこそ、ながのCAKEへ！</br>
@@ -14,30 +27,19 @@
       <h3><strong>新着商品</strong></h3>
 
       <div class="d-flex flex-row">
+        <% @products.each do |product| %>
         <div>
           <%= image_tag 'no_image', size: "150x150" %>
-          <p><strong>商品名</strong></p>
-          <p><strong>¥0,000</strong></p>
+          <p><strong><%= link_to product.name, product_path(product) %></strong></p>
+          <p><strong>¥<%= product.non_taced_price %></strong></p>
         </div>
-        <div>
-          <%= image_tag 'no_image', size: "150x150" %>
-          <p><strong>商品名</strong></p>
-          <p><strong>¥0,000</strong></p>
-        </div>
-        <div>
-          <%= image_tag 'no_image', size: "150x150" %>
-          <p><strong>商品名</strong></p>
-          <p><strong>¥0,000</strong></p>
-        </div>
-        <div>
-          <%= image_tag 'no_image', size: "150x150" %>
-          <p><strong>商品名</strong></p>
-          <p><strong>¥0,000</strong></p>
-        </div>
+        <% end %>
       </div>
+      <% if customer_signed_in? %>
       <div style="text-align: right;">
         <%= link_to 'すべての商品を見る >', products_path %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -23,7 +23,7 @@
           <p><strong><%= (@product.non_taced_price*1.1).floor %></strong>(税込)</p>
           <div class="d-flex flex-row">
             <%= form_with model: @product, url: product_path(@product), local: true do |f| %>
-              <%= f.select :amount, [['1個',1], ['2個',2], ['3個',3], ['4個',4], ['5個',5], ['6個',6], ['7個',7], ['8個',8], ['9個',9], ['10個',10]] %>
+              <%= f.select :amount, [['1個',1], ['2個',2], ['3個',3], ['4個',4], ['5個',5], ['6個',6], ['7個',7], ['8個',8], ['9個',9], ['10個',10]], include_blank: "個数選択" %>
             <% end %>
             <%= link_to "カートに入れる", cart_products_path(@cart_product), class: "btn btn-sm btn-success" %>
           </div>
