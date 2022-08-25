@@ -42,7 +42,7 @@
       <td>製作ステータス</td>
     </tr>
   </thead>
-  
+
   <tbody>
     <%= @order.order_details.each do |order_detail| %>
     <tr>
@@ -65,6 +65,7 @@
         <% end %>
       </td>
     </tr>
+    <% end %>
   </tbody>
 </table>
 
