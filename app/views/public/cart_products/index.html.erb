@@ -14,8 +14,7 @@
           <% @cart_products.each do |cart_product| %>
             <tr>
               <td><%= cart_product.product.name %></td>
-              <td><%= cart_product.product.non_taced_price %></td>
-              <td><%= cart_product.subtotal%> %></td>
+              <td><%= cart_product.product.add_tax_non_taced_price %></td>
               <% @total_payment +=  cart_product.subtotal %>
               <!--product/shoから引用(変えるかも。to_iがいる？)-->
               <td class="d-flex flex-row">
@@ -24,7 +23,8 @@
               <%= f.submit "変更"%>
             <% end %>
               </td>
-              <td><%= cart_product.total_payment%></td>
+              <td><%= cart_product.subtotal %></td>
+              
               <td><%= link_to 'Destroy', cart_product_path(cart_product), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
             </tr>
           <% end %>

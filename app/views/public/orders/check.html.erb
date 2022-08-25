@@ -14,14 +14,14 @@
           <% @cart_products.each do |cart_product| %>
           <tr>
             <td><%= cart_product.product.name %></td>
-            <td><%= cart_product.product.purchase_pricee %></td>
+            <td><%= cart_product.product.add_tax_non_taced_price %></td>
             <td><%= cart_product.amount %></td>
-            <td><%= cart_product.total_payment %></td>
-            <% @total_payment + cart_product.total_payment %>
+            <td><%= cart_product.subtotal %></td>
+            <% @total_payment += cart_product.subtotal %>
           </tr>
           <% end %>
-    　　　</tbody>
-    　　</table>
+       </tbody>
+       </table>
         <table class="table table-bordered col-3"> 
           <tr>
             <th class="table-primary">商品合計</th>
@@ -35,14 +35,13 @@
             <th class="table-primary">請求金額</th>
             <td><%= @total_payment + @order.cost %></td>
           </tr>
-　　　　</table>
-　　　　    <tr>
-　　　　      <th>配送先</th>
+        </table>
+          <tr>
+          <th>配送先</th>
               <td>〒<%= @order.post_code %></td>
               <td><%= @order.name %></td>
               <td><%= @order.address %></td>
-　　　　    </tr>
+           </tr>
   </div>
 </div>
-  
   

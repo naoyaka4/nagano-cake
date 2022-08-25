@@ -2,20 +2,14 @@ class Public::CartProductsController < ApplicationController
   before_action :authenticate_customer!
 
   def index
-    @cart_products = CartProduct.all
+    @cart_products = current_customer.cart_products
     @total_payment = 0
   end
 
   def create
       @cart_products = current_customer.cart_products.new(cart_product_params)
       @cart_products.save
-      redirect_to product_path(@cart_product.product_id)
-　　  # 1. 追加した商品がカート内に存在するかの判別
- 　　　# 　　   存在した場合
-    #   2. カート内の個数をフォームから送られた個数分追加する
-    # 　　　　存在しなかった場合
-    #   カートモデルにレコードを新規作成する
-　#end
+      redirect_to cart_products_path
   end
 
   def update

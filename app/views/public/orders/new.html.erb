@@ -37,7 +37,7 @@
       <%= f.radio_button :a, 2 %>
       <%= f.label :a_2, "新しいお届け先" %>
     </div>
-    <%= form_with model: @address, url: addresses_path, local: true do |f| %>
+    <%#= form_with model: @address, url: addresses_path, local: true do |f| %>
   <table>
     <tr>
       <td>郵便番号(ハイフンなし)</td>
@@ -61,7 +61,7 @@
     </tr>
     
   </table>
-<% end %>
+<%# end %>
       <% end %>   
     
   </div>
