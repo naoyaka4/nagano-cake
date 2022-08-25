@@ -28,11 +28,17 @@ Rails.application.routes.draw do
     get '/customer/information/edit' => 'customers#edit'
     patch '/customer/information' => 'customers#update'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-    resources :orders, only: [:new, :index, :show, :create]
+    
     post '/orders/check' => 'orders#check'
     get '/orders/complete' => 'orders#complete'
-    resources :cart_products, only: [:index, :update, :destroy, :create]
-    delete '/cart_products/destroy_all' => 'cart_products#destroy_all'
+    resources :orders, only: [:new, :index, :show, :create]
+    resources :cart_products, only: [:index, :update, :destroy, :create]do
+    #resources :articles do
+    collection do
+    delete 'destroy_all'
+    end
+    end
+    #delete '/cart_products/destroy_all' => 'cart_products#destroy_all'
     resources :products, only: [:index, :show]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

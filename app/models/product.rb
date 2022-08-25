@@ -2,8 +2,8 @@ class Product < ApplicationRecord
 
   has_one_attached :image
   belongs_to :genre
-  has_many :cart_products, through: :customers
-  has_many :order_details, through: :orders
+  has_many :cart_products, dependent: :destroy
+  has_many :order_details, dependent: :destroy
 
   def get_image
     unless image.attached?
@@ -17,5 +17,10 @@ class Product < ApplicationRecord
   def  add_tax_non_taced_price
   (self.non_taced_price * 1.10).round
   end
+  
+  # #カリキュラムの記述
+  # def with_tax_price
+  #   (price * 1.1).floor
+  # end
   # enum is_active: { true: 0, false: 1 }
 end

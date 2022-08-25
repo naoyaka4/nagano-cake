@@ -1,8 +1,14 @@
 class CartProduct < ApplicationRecord
   belongs_to :customer
-  belongs_to :products
+  belongs_to :product
 
-  def sum_of_price
-    product.price * quantity
+   validates :amount, presence: true
+
+
+  def subtotal
+   product.purchase_price * amount
   end
+  
+  # #カラムの合計を求める方法
+  # Book.all.sum(:price)
 end
