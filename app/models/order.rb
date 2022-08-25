@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   enum status: { waiting_pay: 0, confilmation: 1, under_manufacture: 2, prepare_to_ship: 3, shipped: 4 }
   
   belongs_to :customer
-  has_many :order_details, through: :products
+  has_many :order_details, dependent: :destroy
   
   def sum_of_order_price
     total_payment + cost
