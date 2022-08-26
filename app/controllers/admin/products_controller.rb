@@ -25,13 +25,15 @@ class Admin::ProductsController < ApplicationController
   end
   
 
- 
-
-  def update
-    @product = Product.find(params[:id])
-    @product = params[:name]
-  end
   
+    def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to admin_product_path(@product.id)
+    else
+      render :edit
+    end
+    end
   
   def destroy
     @product = Product.find(params[:id])  # データ（レコード）を1件取得
