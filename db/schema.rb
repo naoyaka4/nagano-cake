@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2022_08_17_035453) do
     t.string "post_code"
     t.string "address"
     t.string "phone_number"
-    t.boolean "is_deleted", default: false
+    t.boolean "is_deleted"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -108,8 +108,8 @@ ActiveRecord::Schema.define(version: 2022_08_17_035453) do
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "cost"
-    t.integer "status"
-    t.integer "payment_method"
+    t.integer "status", default: 0
+    t.integer "payment_method", default: 0
     t.string "name"
     t.string "post_code"
     t.string "address"

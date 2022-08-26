@@ -18,6 +18,8 @@ class Product < ApplicationRecord
   (self.non_taced_price * 1.10).round
   end
   
+  
+  
   # #カリキュラムの記述
   # def with_tax_price
   #   (price * 1.1).floor
