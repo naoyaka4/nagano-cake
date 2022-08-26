@@ -1,6 +1,6 @@
 class Public::OrdersController < ApplicationController
 
-  
+
   def new
     @order = Order.new
     @address = Address.new
@@ -13,14 +13,14 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    
-    
+
+
   end
 
   def check
     @order = Order.new
     @customer = current_customer
-    
+
     if params[:order][:a] == '0'
      # byebug
       @order.post_code = @customer.post_code
@@ -32,7 +32,7 @@ class Public::OrdersController < ApplicationController
           @order.address = @address.address
           @order.name = @address.name
           # @order.save
-          
+
     elsif params[:order][:a] == '2' #条件を書かない場合はelse
           @order.post_code = params[:order][:post_code]
           @order.address = params[:order][:address]
@@ -42,10 +42,10 @@ class Public::OrdersController < ApplicationController
     @order.cost = 800
     @total_payment = 0
     @cart_products = CartProduct.all
-    
+
     #こっち？ @cart_products = CartProduct.all
   end
-  
+
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
@@ -64,8 +64,8 @@ class Public::OrdersController < ApplicationController
      redirect_to orders_complete_path
   end
 
-  
-  
+
+
   # def create
   # @order = current_user.orders.new(order_params)
   # @order.save
@@ -79,14 +79,14 @@ class Public::OrdersController < ApplicationController
   #       @order_items.save
 # current_user.cart_items.destroy_all
   #   end
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
 
   def complete
   end
