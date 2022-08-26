@@ -1,8 +1,12 @@
 <h4>マイページ</h4>
 
-<p><strong>登録情報</strong></p>
-<div class="form-inline">
-  <%= link_to '編集する', customer_information_edit_path(@customer), class: "btn btn-sm btn-success" %>
+<div class="col-5 ml-3">
+  <table class="table table-borderless">
+    <tr>
+      <td><strong>登録情報</strong></td>
+      <td><%= link_to '編集する', customer_information_edit_path(@customer), class: "btn btn-sm btn-success" %></td>
+    </tr>
+  </table>
 </div>
 
 <div class="col-5 ml-3">
@@ -34,12 +38,20 @@
   </table>
 </div>
 
-<p><strong>配送先</strong></p>
-<div>
-  <%= link_to "一覧を見る", addresses_path, class: "btn btn-sm btn-primary" %>
+<div class="col-5 ml-3">
+  <table class="table table-borderless">
+    <tr>
+      <td><strong>配送先</strong></td>
+      <td><%= link_to "一覧を見る", addresses_path, class: "btn btn-sm btn-primary" %></td>
+    </tr>
+  </table>
 </div>
 
-<p><strong>注文履歴</strong></p>
-<div>
-  <%= link_to "一覧を見る", orders_path, class: "btn btn-sm btn-primary" %>
+<div class="col-5 ml-3">
+  <table class="table table-borderless">
+    <tr>
+      <td><strong>注文履歴</strong></td>
+      <td><%= link_to "一覧を見る", orders_path, class: "btn btn-sm btn-primary" %></td>
+    </tr>
+  </table>
 </div>
