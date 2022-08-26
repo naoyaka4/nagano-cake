@@ -23,6 +23,7 @@
        </tbody>
        </table>
         <table class="table table-bordered col-3"> 
+        
           <tr>
             <th class="table-primary">商品合計</th>
             <td><%= @total_payment %></td>
@@ -36,12 +37,18 @@
             <td><%= @total_payment + @order.cost %></td>
           </tr>
         </table>
-          <tr>
-          <th>配送先</th>
+        <table class="table table-bordered col-8"> 
+        <tr>
+          <th class="table-primary col-2">支払方法</th>
+          <td><%= @order.payment_method %></td><br>
+          </table>
+          <table class="table table-bordered col-8"> 
+          <th class="table-primary col-2">配送先</th>
               <td>〒<%= @order.post_code %></td>
               <td><%= @order.name %></td>
               <td><%= @order.address %></td>
            </tr>
+           </table>
            <tr>
              <td>
               <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
