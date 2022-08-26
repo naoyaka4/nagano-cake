@@ -7,6 +7,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+          <%= form_with url: root_path, local: true, method: :get do |f| %>
+            <%= f.text_field :content, placeholder: "Search" %>
+            <%= f.submit "検索", class: "btn btn-sm btn-secondary" %>
+          <% end %>
         <% if customer_signed_in? %>
          <div class = "text-white">ようこそ、<%= current_customer.last_name %>さん!</div>
           <li>
