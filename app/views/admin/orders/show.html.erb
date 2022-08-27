@@ -44,7 +44,7 @@
   </thead>
 
   <tbody>
-    <%= @order.order_details.each do |order_detail| %>
+    <% @order.order_details.each do |order_detail| %>
     <tr>
       <td>
         <%= order_detail.product.name %>
@@ -61,6 +61,7 @@
       <td>
         <%= form_with model: order_detail, url: admin_path(order_detail.id), method: :patch, local:true do |f| %>
         <%= f.select :create_status, OrderDetail.create_statuses.keys.map {|k| [I18n.t("enums.order_detail.create_status.#{k}"), k]} %>
+        <%= f.hidden_field :order_id, :value => @order.id %>
         <%= f.submit "更新", class: 'btn btn-secondary' %>
         <% end %>
 
