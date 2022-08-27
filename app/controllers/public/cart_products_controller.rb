@@ -4,8 +4,9 @@ class Public::CartProductsController < ApplicationController
   def index
     @cart_products = current_customer.cart_products
     @total_payment = 0
+    @cart_product
   end
-      
+
   def create
     @cart_product = current_customer.cart_products.new(cart_product_params)
     @cart_products = current_customer.cart_products.all
@@ -39,7 +40,7 @@ class Public::CartProductsController < ApplicationController
     current_customer.cart_products.destroy_all
     redirect_to cart_products_path
   end
-  
+
   private
 
   def cart_product_params
