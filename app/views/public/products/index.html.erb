@@ -26,7 +26,9 @@
       <div class="d-flex flex-wrap">
         <% @products.each do |product| %>
         <div style="margin-right: 10px;">
-          <%= image_tag product.get_image, size: "150x150" %>
+          <%= link_to product_path(product) do %>
+           <%= image_tag product.get_image, size: "150x150" %>
+          <% end %>
           <p><strong><%= link_to product.name, product_path(product) %></strong></p>
           <p><strong>¥<%= product.non_taced_price.to_i %></strong></p>
         </div>
