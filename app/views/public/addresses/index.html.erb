@@ -30,6 +30,7 @@
       <th></th>
     </tr>
     <% @addresses.each do |address| %>
+    <% if address.customer == current_customer %>
     <tr>
       <td><%= address.post_code %></td>
       <td><%= address.address %></td>
@@ -41,6 +42,7 @@
         </div>
       </td>
     </tr>
+    <% end %>
     <% end %>
   </table>
 </div>
