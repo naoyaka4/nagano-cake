@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-  
+
 
 
   def new
@@ -19,9 +19,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def check
-    
+
     @order = Order.new
     @customer = current_customer
+    @payment_method = params[:order][:payment_method]
 
     if params[:order][:a] == '0'
      # byebug
