@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
+    <div class="mx-auto" style="width: 500px;">
     
     <h2>商品新規登録</h2>
     <%= form_with model: @product, url: admin_products_path, method: :post, local: true do |f| %>
         <div class="col-5">
         </div>
-    <table class="table">
     <tbody>
       <tr>
         <td>
@@ -66,13 +66,13 @@
        <td>
         <div class="form-group">
          <%= f.hidden_field :id, :value => @product.id %>
-      	 <%= f.submit "新規登録", class:"btn btn-success" %>
+      	 <%= f.submit "新規登録", class:"btn btn-info" %>
         </div>
         </td>
       </tr>
       </tbody>
     <% end %>
-
+</div>
 </div>
 </div>
 
