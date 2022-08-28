@@ -18,6 +18,7 @@ class Admin::OrderDetailsController < ApplicationController
 
 
 
+
   private
 
   def order_detail_params

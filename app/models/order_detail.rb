@@ -7,4 +7,9 @@ class OrderDetail < ApplicationRecord
   def sum_of_detail_price
     purchase_price * amount
   end
+  
+  def sum_of_detail_price
+    purchase_price * amount
+  end
+  
 end

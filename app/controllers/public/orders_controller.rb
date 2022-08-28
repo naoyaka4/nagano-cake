@@ -44,7 +44,7 @@ class Public::OrdersController < ApplicationController
     # @address = Address.find(params[:order_id][:address_id])？
     @order.cost = 800
     @total_payment = 0
-    @cart_products = CartProduct.all
+    @cart_products = current_customer.cart_products
 
     #こっち？ @cart_products = CartProduct.all
   end
@@ -58,7 +58,7 @@ class Public::OrdersController < ApplicationController
         @order_details = OrderDetail.new
         @order_details.order_id = @order.id
         @order_details.product_id = cart_product.product.id
-        @order_details.purchase_price = cart_product.product.non_taced_price
+        @order_details.purchase_price = cart_product.product.non_taced_price*1.1
         @order_details.amount = cart_product.amount
         @order_details.create_status = 0
         @order_details.save
