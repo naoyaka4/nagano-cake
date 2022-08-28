@@ -1,0 +1,40 @@
+<h4>商品一覧</h4>
+     <div class = "col-md-3 ml-auto">
+      <%= link_to new_admin_product_path do %>
+        <button class = "btn btn-info" >新規登録</button>
+      <% end %>
+    </div>
+<table class="table table-bordered col-8 text-center">
+  <div class="mx-auto" style="width: 500px;">
+	<thead>
+  <tr>
+	<th style="background-color:pink">商品ID</th>
+	<th style="background-color:pink">商品名</th>
+	<th style="background-color:pink">税抜価格</th>
+	<th style="background-color:pink">ジャンル</th>
+	<th style="background-color:pink">ステータス</th>
+  </tr>
+	</thead>
+	<tbody>
+  <% @products.each do |product| %>
+	<tr>
+		<td><%= product.id %></td>
+		<td><%= link_to product.name, admin_product_path(product.id) %></td>
+		<td><%= product.non_taced_price %></td>
+		<td><%= product.name %></td>
+		<td><% if product.is_active == true %>
+		     	販売中
+       	<% else %>
+			    <font color="red">売切れ</font>
+	    	<% end %>
+	      <td><%= link_to '削除する', admin_product_path(product), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+		</td>
+	</tr>
+	
+  <% end %>
+  
+  
+
+	</tbody>
+  </div>
+</table>

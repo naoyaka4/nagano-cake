@@ -1,16 +1,30 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <title>NaganoCake</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NAGANO cake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+     <div class="container">
+      <div class="row">
+       <div class="col-md-3">
+       </div>
+      </div>
+        <main>
+        <p id="notice"><%= notice %></p>
+        <div class='d-flex justify-content-center mb-2'>
+        </div>
+
+        <%= yield %>
+        
+      </main>
+     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

@@ -1,0 +1,68 @@
+  <div class="container">
+    <div class = "col-12">
+      <h2>注文情報確認</h2>
+      <table class="table table-bordered col-8">
+        <thead>
+          <tr>
+            <th class="table-primary">商品名</th>
+            <th class="table-primary" >単価(税込)</th>
+            <th class="table-primary" >数量</th>
+            <th class="table-primary" >小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_products.each do |cart_product| %>
+          <tr>
+            <td><%= cart_product.product.name %></td>
+            <td><%= cart_product.product.add_tax_non_taced_price %></td>
+            <td><%= cart_product.amount %></td>
+            <td><%= cart_product.subtotal %></td>
+            <% @total_payment += cart_product.subtotal %>
+          </tr>
+          <% end %>
+       </tbody>
+       </table>
+        <table class="table table-bordered col-3">
+
+          <tr>
+            <th class="table-primary">商品合計</th>
+            <td><%= @total_payment %></td>
+          </tr>
+          <tr>
+            <th class="table-primary">送料</th>
+            <td><%= @order.cost %></td>
+          </tr>
+          <tr>
+            <th class="table-primary">請求金額</th>
+            <td><%= @total_payment + @order.cost %></td>
+          </tr>
+        </table>
+        <table class="table table-bordered col-8">
+        <tr>
+          <th class="table-primary col-2">支払方法</th>
+          <td><%= Order.payment_methods_i18n[@payment_method] %></td><br>
+          </table>
+          <table class="table table-bordered col-8">
+          <th class="table-primary col-2">配送先</th>
+              <td>〒<%= @order.post_code %></td>
+              <td><%= @order.name %></td>
+              <td><%= @order.address %></td>
+           </tr>
+           </table>
+           <tr>
+             <td>
+              <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+                <%#= f.hidden_field :product.name %>
+                <%= f.hidden_field :name %>
+                <%#= f.hidden_field :add_tax_non_taced_price %>
+                <%= f.hidden_field :total_payment, value: @total_payment + @order.cost %>
+                <%= f.hidden_field :cost, value: @order.cost %>
+                <%= f.hidden_field :address %>
+                <%= f.hidden_field :post_code %>
+                <%= f.hidden_field :payment_method, value: @payment_method %>
+                <%= f.submit "注文を確定する", class: "btn btn-success" %>
+              <% end %>
+            </td>
+            </tr>
+  </div>
+</div>
