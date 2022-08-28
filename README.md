@@ -1,24 +1,33 @@
-# README
+# Description
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+・　長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト開発。
 
-Things you may want to cover:
+## Function
 
-* Ruby version
+顧客側
 
-* System dependencies
+・　会員登録、ログイン・ログアウト、退会
 
-* Configuration
+・　アカウント情報編集
 
-* Database creation
+・　商品の購入
 
-* Database initialization
+・　注文履歴の確認
 
-* How to run the test suite
+・　配送先の複数登録
 
-* Services (job queues, cache servers, search engines, etc.)
+管理者側
 
-* Deployment instructions
+・　ログイン、ログアウト
 
-* ...
+・　商品の新規追加、編集、閲覧
+
+・　販売停止（売切表示）
+
+・　会員登録されている顧客情報の閲覧、編集、退会処理
+
+・　注文ステータスの更新
+
+
+# ER図
+![チーム（なおやか）](https://user-images.githubusercontent.com/108570463/187060868-8aa3d270-8ae0-4507-8800-adf54071b6b4.jpg)
